@@ -14,6 +14,10 @@
 		151000B31D7403E300E9C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151000B11D7403E300E9C09E /* LaunchScreen.storyboard */; };
 		151000BE1D7403E300E9C09E /* OrdinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000BD1D7403E300E9C09E /* OrdinationTests.swift */; };
 		151000C91D7403E300E9C09E /* OrdinationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000C81D7403E300E9C09E /* OrdinationUITests.swift */; };
+		151000E61D74088300E9C09E /* SortingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000E51D74088300E9C09E /* SortingTests.swift */; };
+		151000E81D7408B800E9C09E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000E71D7408B800E9C09E /* Book.swift */; };
+		151000EA1D7408E900E9C09E /* ServiceOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000E91D7408E900E9C09E /* ServiceOrder.swift */; };
+		151000EC1D7409B300E9C09E /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000EB1D7409B200E9C09E /* ModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		151000C41D7403E300E9C09E /* OrdinationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrdinationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		151000C81D7403E300E9C09E /* OrdinationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinationUITests.swift; sourceTree = "<group>"; };
 		151000CA1D7403E300E9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		151000E51D74088300E9C09E /* SortingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingTests.swift; sourceTree = "<group>"; };
+		151000E71D7408B800E9C09E /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		151000E91D7408E900E9C09E /* ServiceOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceOrder.swift; sourceTree = "<group>"; };
+		151000EB1D7409B200E9C09E /* ModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,8 @@
 				151000AF1D7403E300E9C09E /* Assets.xcassets */,
 				151000B11D7403E300E9C09E /* LaunchScreen.storyboard */,
 				151000B41D7403E300E9C09E /* Info.plist */,
+				151000E71D7408B800E9C09E /* Book.swift */,
+				151000E91D7408E900E9C09E /* ServiceOrder.swift */,
 			);
 			path = Ordination;
 			sourceTree = "<group>";
@@ -111,7 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				151000BD1D7403E300E9C09E /* OrdinationTests.swift */,
+				151000E51D74088300E9C09E /* SortingTests.swift */,
 				151000BF1D7403E300E9C09E /* Info.plist */,
+				151000EB1D7409B200E9C09E /* ModelTests.swift */,
 			);
 			path = OrdinationTests;
 			sourceTree = "<group>";
@@ -258,6 +270,8 @@
 			files = (
 				151000AB1D7403E300E9C09E /* ViewController.swift in Sources */,
 				151000A91D7403E300E9C09E /* AppDelegate.swift in Sources */,
+				151000EA1D7408E900E9C09E /* ServiceOrder.swift in Sources */,
+				151000E81D7408B800E9C09E /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151000EC1D7409B300E9C09E /* ModelTests.swift in Sources */,
+				151000E61D74088300E9C09E /* SortingTests.swift in Sources */,
 				151000BE1D7403E300E9C09E /* OrdinationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +500,7 @@
 				151000CF1D7403E300E9C09E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		151000D01D7403E300E9C09E /* Build configuration list for PBXNativeTarget "OrdinationTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +509,7 @@
 				151000D21D7403E300E9C09E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		151000D31D7403E300E9C09E /* Build configuration list for PBXNativeTarget "OrdinationUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +518,7 @@
 				151000D51D7403E300E9C09E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
