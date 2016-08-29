@@ -6,12 +6,14 @@ For this project, we used MVVM architecture. Of course, I used the Swift (2.2) p
 
 ## Installation
 
-1. Open terminal
-2. Git Clone
+I - Open terminal
+
+II - Git Clone
 ```
 git clone https://github.com/brunodlz/Ordination.git
 ```
-3. cd Ordination/
+
+III - cd Ordination/
 ```
    Outputs:
     .
@@ -19,7 +21,8 @@ git clone https://github.com/brunodlz/Ordination.git
     ├── README.md
     └── Ordination
 ```
-4. cd Ordination/
+
+IV - cd Ordination/
 ```
    Outputs:
     .
@@ -29,6 +32,8 @@ git clone https://github.com/brunodlz/Ordination.git
         └── OrdinationTests
         └── OrdinationUITests
 ```
-5. open Ordination.xcodeproj/
-6. Choice a simulator
-7. Run
+V   - open Ordination.xcodeproj/
+
+VI  - Choice a simulator
+
+VII - Run
