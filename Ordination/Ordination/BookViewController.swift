@@ -58,6 +58,29 @@ class BookViewController: UIViewController {
         self.listOfBooks = defaultList
     }
 
+    //# MARK: Actions
+
+    @IBAction func actionOrder(sender: AnyObject) {
+        self.hiddenButton(hidden: false, selectedSegment: sender.tag)
+        self.updateTableView()
+    }
+
+    @IBAction func actionCleanOption(sender: AnyObject) {
+        self.hiddenButton(hidden: true, selectedSegment: sender.tag)
+        self.resetSegment(selectedSegment: sender.tag)
+        self.validateSegments()
+        self.updateTableView()
+    }
+
+    func updateTableView() {
+        let orderedList = getOrdenation(positionTitle: self.segmentTitle.selectedSegmentIndex,
+                                        positionAuthor: self.segmentAuthor.selectedSegmentIndex,
+                                        positionEditionYear: self.segmentEditioYear.selectedSegmentIndex)
+        self.listOfBooks = orderedList
+
+        self.bookTableView.reloadData()
+    }
+
     func getOrdenation(positionTitle positionTitle: Int, positionAuthor: Int, positionEditionYear: Int) -> [Book] {
         let dictionaryWithOptionsSelected = ["title" : positionTitle,
                                              "author" : positionAuthor,
@@ -67,10 +90,70 @@ class BookViewController: UIViewController {
         self.clearList()
         return newList
     }
-    
+
     //# MARK: Clear List
-    
+
     func clearList() {
         self.listOfBooks.removeAll()
+    }
+
+    //# MARK: Reset Options
+
+    func resetOptions() {
+        self.buttonClearTitle.hidden = true
+        self.buttonClearAuthor.hidden = true
+        self.buttonClearEditionYear.hidden = true
+
+        self.segmentTitle.selectedSegmentIndex      = OrderSegment.Deselected.rawValue
+        self.segmentAuthor.selectedSegmentIndex     = OrderSegment.Deselected.rawValue
+        self.segmentEditioYear.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+    }
+
+    func validateSegments() {
+        if self.segmentTitle.selectedSegmentIndex == OrderSegment.Deselected.rawValue &&
+            self.segmentAuthor.selectedSegmentIndex == OrderSegment.Deselected.rawValue &&
+            self.segmentEditioYear.selectedSegmentIndex == OrderSegment.Deselected.rawValue {
+            self.setDefaultList()
+        }
+    }
+
+    //# MARK: Hidden Button
+
+    func hiddenButton(hidden hidden: Bool, selectedSegment: Int) {
+        switch selectedSegment {
+        case 0:
+            self.buttonClearTitle.hidden = hidden
+            break
+
+        case 1:
+            self.buttonClearAuthor.hidden = hidden
+            break
+
+        case 2:
+            self.buttonClearEditionYear.hidden = hidden
+            break
+
+        default: break
+        }
+    }
+
+    //# MARK: Table View
+
+    func resetSegment(selectedSegment selectedSegment: Int) {
+        switch selectedSegment {
+        case 0:
+            self.segmentTitle.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            break
+
+        case 1:
+            self.segmentAuthor.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            break
+
+        case 2:
+            self.segmentEditioYear.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            break
+
+        default: break
+        }
     }
 }
