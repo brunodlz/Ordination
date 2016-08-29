@@ -24,10 +24,10 @@ git clone https://github.com/brunodlz/Ordination.git
    Outputs:
     .
     └── Ordination
-        ├── Ordination
-        ├── Ordination.xcodeproj
-        ├── OrdinationTests
-        ├── OrdinationUITests
+        └── Ordination
+        └── Ordination.xcodeproj
+        └── OrdinationTests
+        └── OrdinationUITests
 ```
 5. open Ordination.xcodeproj/
 6. Choice a simulator
