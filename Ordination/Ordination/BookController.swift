@@ -17,7 +17,7 @@ class BookController {
         let (title_selected, selected_author, seletecd_edition_year) = self.getSelectedSegment(selected: attributes)
 
         guard title_selected || selected_author || seletecd_edition_year else {
-            return listOfBooks
+            return self.getBooks()
         }
 
         return self.getOrdination(selected: [title_selected, selected_author, seletecd_edition_year], attributes: attributes, listOfBooks: listOfBooks)
