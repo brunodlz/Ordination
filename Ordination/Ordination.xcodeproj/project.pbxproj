@@ -109,12 +109,12 @@
 		151000A71D7403E300E9C09E /* Ordination */ = {
 			isa = PBXGroup;
 			children = (
-				151000A81D7403E300E9C09E /* AppDelegate.swift */,
-				151000E71D7408B800E9C09E /* Book.swift */,
-				151000E91D7408E900E9C09E /* ServiceOrder.swift */,
-				151000EF1D740A8700E9C09E /* BookCell.swift */,
-				151000F11D740A9200E9C09E /* BookViewController.swift */,
-				151000F31D740AB300E9C09E /* BookViewModel.swift */,
+				151000FA1D740BCE00E9C09E /* AppDelegate */,
+				151000F61D740BB900E9C09E /* ViewController */,
+				151000F51D740BB300E9C09E /* ViewModel */,
+				151000F91D740BCB00E9C09E /* Model */,
+				151000F71D740BBE00E9C09E /* View */,
+				151000F81D740BC200E9C09E /* Service */,
 				151000ED1D740A6B00E9C09E /* Storyboard */,
 				151000EE1D740A7200E9C09E /* Support Files */,
 			);
@@ -157,6 +157,54 @@
 				151000B41D7403E300E9C09E /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		151000F51D740BB300E9C09E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				151000F31D740AB300E9C09E /* BookViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		151000F61D740BB900E9C09E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				151000F11D740A9200E9C09E /* BookViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		151000F71D740BBE00E9C09E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				151000EF1D740A8700E9C09E /* BookCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		151000F81D740BC200E9C09E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				151000E91D7408E900E9C09E /* ServiceOrder.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		151000F91D740BCB00E9C09E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				151000E71D7408B800E9C09E /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		151000FA1D740BCE00E9C09E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				151000A81D7403E300E9C09E /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
