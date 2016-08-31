@@ -1,5 +1,7 @@
 # Ordination
 
+[![Coverage Status](https://coveralls.io/repos/github/brunodlz/Ordination/badge.svg?branch=master)](https://coveralls.io/github/brunodlz/Ordination?branch=master)
+
 This is a project for sorting books.
 
 For this project, we used MVVM architecture. Of course, I used the Swift (2.2) programming language.
