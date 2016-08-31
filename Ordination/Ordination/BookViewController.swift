@@ -30,10 +30,6 @@ class BookViewController: UIViewController {
         self.setDefaultList()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     //# MARK: Table View
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -97,17 +93,7 @@ class BookViewController: UIViewController {
         self.listOfBooks.removeAll()
     }
 
-    //# MARK: Reset Options
-
-    func resetOptions() {
-        self.buttonClearTitle.hidden = true
-        self.buttonClearAuthor.hidden = true
-        self.buttonClearEditionYear.hidden = true
-
-        self.segmentTitle.selectedSegmentIndex      = OrderSegment.Deselected.rawValue
-        self.segmentAuthor.selectedSegmentIndex     = OrderSegment.Deselected.rawValue
-        self.segmentEditioYear.selectedSegmentIndex = OrderSegment.Deselected.rawValue
-    }
+    //# MARK: Validate Segments
 
     func validateSegments() {
         if self.segmentTitle.selectedSegmentIndex == OrderSegment.Deselected.rawValue &&
