@@ -12,6 +12,8 @@ import XCTest
 
 class ModelTests: XCTestCase {
 
+    let bookController = BookController()
+
     func test_Add_Book() {
         let swift_beta_3 = Book(number: 1,
                                 title: "The Swift Programming Language (Swift 3 Beta)",
@@ -32,11 +34,29 @@ class ModelTests: XCTestCase {
 
     }
 
-    func test_With_Exception() {
+    func test_validate_any_selected() {
 
-        let swift_pocket_reference = [Book]()
-        XCTAssertNil(swift_pocket_reference)
+        let dictionaryWithOptionsSelected = ["title" : -1,
+                                             "author" : -1,
+                                             "editionYear" : -1]
 
+        let book1 = Book(number: 1,
+                         title: "Java How To Program",
+                         author: "Deitel & Deitel",
+                         editionYear: 2007)
+
+        let newList = bookController.validate(selected: dictionaryWithOptionsSelected, listOfBooks: [book1])
+
+        XCTAssertEqual(newList[0].title, "Java How To Program")
+        XCTAssertEqual(newList[0].author, "Deitel & Deitel")
+        XCTAssertEqual(newList[0].editionYear, 2007)
     }
+
+//    func test_With_Exception() {
+//
+//        let swift_pocket_reference = [Book]()
+//        XCTAssertNil(swift_pocket_reference)
+//
+//    }
 
 }

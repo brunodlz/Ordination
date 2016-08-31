@@ -131,8 +131,8 @@
 			children = (
 				151000BD1D7403E300E9C09E /* OrdinationTests.swift */,
 				151000E51D74088300E9C09E /* SortingTests.swift */,
-				151000BF1D7403E300E9C09E /* Info.plist */,
 				151000EB1D7409B200E9C09E /* ModelTests.swift */,
+				151000BF1D7403E300E9C09E /* Info.plist */,
 			);
 			path = OrdinationTests;
 			sourceTree = "<group>";

@@ -13,34 +13,12 @@ class SortingTests: XCTestCase {
 
     var listOfBooks = [Book]()
     let service = ServiceOrder()
+    let bookController = BookController()
 
     override func setUp() {
         super.setUp()
 
-        let book1 = Book(number: 1,
-                         title: "Java How To Program",
-                         author: "Deitel & Deitel",
-                         editionYear: 2007)
-
-        let book2 = Book(number: 2,
-                         title: "Patterns of Enterprise Application Architecture",
-                         author: "Martin Fowler",
-                         editionYear: 2002)
-
-        let book3 = Book(number: 3,
-                         title: "Head First Design Patterns",
-                         author: "Elisabeth Freeman",
-                         editionYear: 2004)
-
-        let book4 = Book(number: 4,
-                         title: "Internet & World Wide Web: How to Program",
-                         author: "Deitel & Deitel",
-                         editionYear: 2007)
-
-        self.listOfBooks.append(book1)
-        self.listOfBooks.append(book2)
-        self.listOfBooks.append(book3)
-        self.listOfBooks.append(book4)
+        listOfBooks = Book().createListOfBooks()
     }
 
     override func tearDown() {
@@ -105,6 +83,170 @@ class SortingTests: XCTestCase {
         for book in listEditionYearDesc {
             print(book)
         }
+    }
+
+    func test_EditionYear_Desc_And_Author_Desc_And_Title_DESC() {
+
+        let listTitleDesc       = service.getTitleDESC(list: self.listOfBooks)
+        let listAuthorDesc      = service.getAuthorDESC(list: listTitleDesc)
+        let listEditionYearDesc = service.getEditionYearDESC(list: listAuthorDesc)
+
+        XCTAssertEqual(listEditionYearDesc[0].number, 1)
+        XCTAssertEqual(listEditionYearDesc[1].number, 4)
+        XCTAssertEqual(listEditionYearDesc[2].number, 3)
+        XCTAssertEqual(listEditionYearDesc[3].number, 2)
+
+        for book in listEditionYearDesc {
+            print(book)
+        }
+    }
+
+    func test_EditioYear_Asc() {
+
+        let listEditionYearAsc = service.getEditionYearASC(list: self.listOfBooks)
+
+        XCTAssertEqual(listEditionYearAsc[0].number, 2)
+        XCTAssertEqual(listEditionYearAsc[1].number, 3)
+        XCTAssertEqual(listEditionYearAsc[2].number, 1)
+        XCTAssertEqual(listEditionYearAsc[3].number, 4)
+
+        for book in listEditionYearAsc {
+            print(book)
+        }
+    }
+
+    func test_all_segments_selected_for_ASC() {
+
+        let dictionaryWithOptionsSelected = ["title" : 0,
+                                             "author" : 0,
+                                             "editionYear" : 0]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        XCTAssertTrue(selected_title)
+        XCTAssertTrue(author_selected)
+        XCTAssertTrue(editionYear_selected)
+    }
+
+    func test_all_segments_selected_for_DESC() {
+
+        let dictionaryWithOptionsSelected = ["title" : 1,
+                                             "author" : 1,
+                                             "editionYear" : 1]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        XCTAssertTrue(selected_title)
+        XCTAssertTrue(author_selected)
+        XCTAssertTrue(editionYear_selected)
+    }
+
+    func test_get_All_The_Sgments_Sorted_In_ASC() {
+
+        let dictionaryWithOptionsSelected = ["title" : 0,
+                                             "author" : 0,
+                                             "editionYear" : 0]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 2)
+        XCTAssertEqual(orderedList[1].number, 3)
+        XCTAssertEqual(orderedList[2].number, 4)
+        XCTAssertEqual(orderedList[3].number, 1)
+    }
+
+    func test_get_All_The_Sgments_Sorted_In_DESC() {
+
+        let dictionaryWithOptionsSelected = ["title" : 1,
+                                             "author" : 1,
+                                             "editionYear" : 1]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 1)
+        XCTAssertEqual(orderedList[1].number, 4)
+        XCTAssertEqual(orderedList[2].number, 3)
+        XCTAssertEqual(orderedList[3].number, 2)
+    }
+
+    func test_It_Was_Selected_Author_Only_ASC() {
+
+        let dictionaryWithOptionsSelected = ["title" : -1,
+                                             "author" : 0,
+                                             "editionYear" : -1]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 1)
+        XCTAssertEqual(orderedList[1].number, 4)
+        XCTAssertEqual(orderedList[2].number, 3)
+        XCTAssertEqual(orderedList[3].number, 2)
+    }
+
+    func test_It_Was_Selected_Author_Only_DESC() {
+
+        let dictionaryWithOptionsSelected = ["title" : -1,
+                                             "author" : 0,
+                                             "editionYear" : -1]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 1)
+        XCTAssertEqual(orderedList[1].number, 4)
+        XCTAssertEqual(orderedList[2].number, 3)
+        XCTAssertEqual(orderedList[3].number, 2)
+    }
+
+    func test_Was_Selected_Of_The_Year_Edition_Only_ASC() {
+
+        let dictionaryWithOptionsSelected = ["title" : -1,
+                                             "author" : -1,
+                                             "editionYear" : 0]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 2)
+        XCTAssertEqual(orderedList[1].number, 3)
+        XCTAssertEqual(orderedList[2].number, 1)
+        XCTAssertEqual(orderedList[3].number, 4)
+    }
+
+    func test_Was_Selected_Of_The_Year_Edition_Only_DESC() {
+
+        let dictionaryWithOptionsSelected = ["title" : -1,
+                                             "author" : -1,
+                                             "editionYear" : 1]
+
+        let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
+
+        let orderedList = bookController.getOrdination(selected: [selected_title, author_selected, editionYear_selected],
+                                                       attributes: dictionaryWithOptionsSelected,
+                                                       listOfBooks: self.listOfBooks)
+
+        XCTAssertEqual(orderedList[0].number, 1)
+        XCTAssertEqual(orderedList[1].number, 4)
+        XCTAssertEqual(orderedList[2].number, 3)
+        XCTAssertEqual(orderedList[3].number, 2)
     }
 
     func test_Empty() {
