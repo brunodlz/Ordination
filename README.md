@@ -1,5 +1,6 @@
 # Ordination
 
+[![Build Status](https://travis-ci.org/nFiction/StackOverflow.svg?branch=master)](https://travis-ci.org/nFiction/StackOverflow)
 [![Coverage Status](https://coveralls.io/repos/github/brunodlz/Ordination/badge.svg?branch=master)](https://coveralls.io/github/brunodlz/Ordination?branch=master)
 
 This is a project for sorting books.
