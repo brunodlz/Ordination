@@ -6,6 +6,8 @@ This is a project for sorting books.
 
 For this project, we used MVVM architecture. Of course, I used the Swift (2.2) programming language.
 
+Tests with code coverage: 99%.
+
 ## Installation
 
 I - Open terminal
