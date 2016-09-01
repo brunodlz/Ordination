@@ -28,11 +28,6 @@ class OrdinationUITests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
     func test_select_by_title_ASC_and_deselected() {
 
         let element = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"Books").childrenMatchingType(.Other).elementBoundByIndex(1)

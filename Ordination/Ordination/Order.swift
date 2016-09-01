@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum OrderSegment: Int {
-    case Deselected = -1, Title_Selected = 0, Selected_Author = 1, Selected_EditionYear = 2
+enum Segment: Int {
+    case Deselected = -1, Title = 0, Author = 1, EditionYear = 2
 }
 
-enum SelectedOrder: Int {
+enum OrderBy: Int {
     case ASC = 0, DESC = 1
 }

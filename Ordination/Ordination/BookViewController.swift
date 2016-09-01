@@ -48,9 +48,9 @@ class BookViewController: UIViewController {
     //# MARK: Set Default List
 
     func setDefaultList() {
-        let defaultList = getOrdenation(positionTitle: SelectedOrder.ASC.rawValue,
-                                        positionAuthor: SelectedOrder.ASC.rawValue,
-                                        positionEditionYear: OrderSegment.Deselected.rawValue)
+        let defaultList = getOrdenation(positionTitle: OrderBy.ASC.rawValue,
+                                        positionAuthor: OrderBy.ASC.rawValue,
+                                        positionEditionYear: Segment.Deselected.rawValue)
         self.listOfBooks = defaultList
     }
 
@@ -96,9 +96,9 @@ class BookViewController: UIViewController {
     //# MARK: Validate Segments
 
     func validateSegments() {
-        if self.segmentTitle.selectedSegmentIndex == OrderSegment.Deselected.rawValue &&
-            self.segmentAuthor.selectedSegmentIndex == OrderSegment.Deselected.rawValue &&
-            self.segmentEditioYear.selectedSegmentIndex == OrderSegment.Deselected.rawValue {
+        if self.segmentTitle.selectedSegmentIndex == Segment.Deselected.rawValue &&
+            self.segmentAuthor.selectedSegmentIndex == Segment.Deselected.rawValue &&
+            self.segmentEditioYear.selectedSegmentIndex == Segment.Deselected.rawValue {
             self.setDefaultList()
         }
     }
@@ -128,15 +128,15 @@ class BookViewController: UIViewController {
     func resetSegment(selectedSegment selectedSegment: Int) {
         switch selectedSegment {
         case 0:
-            self.segmentTitle.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            self.segmentTitle.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         case 1:
-            self.segmentAuthor.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            self.segmentAuthor.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         case 2:
-            self.segmentEditioYear.selectedSegmentIndex = OrderSegment.Deselected.rawValue
+            self.segmentEditioYear.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         default: break

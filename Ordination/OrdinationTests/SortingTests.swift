@@ -117,9 +117,9 @@ class SortingTests: XCTestCase {
 
     func test_all_segments_selected_for_ASC() {
 
-        let dictionaryWithOptionsSelected = ["title" : 0,
-                                             "author" : 0,
-                                             "editionYear" : 0]
+        let dictionaryWithOptionsSelected = ["title" : OrderBy.ASC.rawValue,
+                                             "author" : OrderBy.ASC.rawValue,
+                                             "editionYear" : OrderBy.ASC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -130,9 +130,9 @@ class SortingTests: XCTestCase {
 
     func test_all_segments_selected_for_DESC() {
 
-        let dictionaryWithOptionsSelected = ["title" : 1,
-                                             "author" : 1,
-                                             "editionYear" : 1]
+        let dictionaryWithOptionsSelected = ["title" : OrderBy.DESC.rawValue,
+                                             "author" : OrderBy.DESC.rawValue,
+                                             "editionYear" : OrderBy.DESC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -143,9 +143,9 @@ class SortingTests: XCTestCase {
 
     func test_get_All_The_Sgments_Sorted_In_ASC() {
 
-        let dictionaryWithOptionsSelected = ["title" : 0,
-                                             "author" : 0,
-                                             "editionYear" : 0]
+        let dictionaryWithOptionsSelected = ["title" : OrderBy.ASC.rawValue,
+                                             "author" : OrderBy.ASC.rawValue,
+                                             "editionYear" : OrderBy.ASC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -161,9 +161,9 @@ class SortingTests: XCTestCase {
 
     func test_get_All_The_Sgments_Sorted_In_DESC() {
 
-        let dictionaryWithOptionsSelected = ["title" : 1,
-                                             "author" : 1,
-                                             "editionYear" : 1]
+        let dictionaryWithOptionsSelected = ["title" : OrderBy.DESC.rawValue,
+                                             "author" : OrderBy.DESC.rawValue,
+                                             "editionYear" : OrderBy.DESC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -179,9 +179,9 @@ class SortingTests: XCTestCase {
 
     func test_It_Was_Selected_Author_Only_ASC() {
 
-        let dictionaryWithOptionsSelected = ["title" : -1,
-                                             "author" : 0,
-                                             "editionYear" : -1]
+        let dictionaryWithOptionsSelected = ["title" : Segment.Deselected.rawValue,
+                                             "author" : OrderBy.ASC.rawValue,
+                                             "editionYear" : Segment.Deselected.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -197,9 +197,9 @@ class SortingTests: XCTestCase {
 
     func test_It_Was_Selected_Author_Only_DESC() {
 
-        let dictionaryWithOptionsSelected = ["title" : -1,
-                                             "author" : 0,
-                                             "editionYear" : -1]
+        let dictionaryWithOptionsSelected = ["title" : Segment.Deselected.rawValue,
+                                             "author" : OrderBy.ASC.rawValue,
+                                             "editionYear" : Segment.Deselected.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -215,9 +215,9 @@ class SortingTests: XCTestCase {
 
     func test_Was_Selected_Of_The_Year_Edition_Only_ASC() {
 
-        let dictionaryWithOptionsSelected = ["title" : -1,
-                                             "author" : -1,
-                                             "editionYear" : 0]
+        let dictionaryWithOptionsSelected = ["title" : Segment.Deselected.rawValue,
+                                             "author" : Segment.Deselected.rawValue,
+                                             "editionYear" : OrderBy.ASC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
@@ -233,9 +233,9 @@ class SortingTests: XCTestCase {
 
     func test_Was_Selected_Of_The_Year_Edition_Only_DESC() {
 
-        let dictionaryWithOptionsSelected = ["title" : -1,
-                                             "author" : -1,
-                                             "editionYear" : 1]
+        let dictionaryWithOptionsSelected = ["title" : Segment.Deselected.rawValue,
+                                             "author" : Segment.Deselected.rawValue,
+                                             "editionYear" : OrderBy.DESC.rawValue]
 
         let (selected_title, author_selected, editionYear_selected) = bookController.getSelectedSegment(selected: dictionaryWithOptionsSelected)
 
