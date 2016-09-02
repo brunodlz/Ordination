@@ -8,7 +8,7 @@ For this project:
 * Swift (2.2) programming language.
 * MVVM architecture.
 * Tests with code coverage: 99%.
-* Swiftlint - A tool to enforce Swift style and conventions*
+* Swiftlint - A tool to enforce Swift style and conventions
 
 ## Installation
 
