@@ -45,7 +45,8 @@ class ModelTests: XCTestCase {
                          author: "Deitel & Deitel",
                          editionYear: 2007)
 
-        let newList = bookController.validate(selected: dictionaryWithOptionsSelected, listOfBooks: [book1])
+        let newList = bookController.validate(selected: dictionaryWithOptionsSelected,
+                                              listOfBooks: [book1])
 
         XCTAssertEqual(newList[0].title, "Java How To Program")
         XCTAssertEqual(newList[0].author, "Deitel & Deitel")

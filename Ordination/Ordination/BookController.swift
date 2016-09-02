@@ -12,53 +12,62 @@ class BookController {
 
     let service = ServiceOrder()
 
-    func validate(selected attributes: NSDictionary, listOfBooks: [Book]) -> [Book] {
+    func validate(selected attributes: NSDictionary,
+                           listOfBooks: [Book]) -> [Book] {
 
-        let (Title, Author, seletecd_edition_year) = self.getSelectedSegment(selected: attributes)
+        let (title, author, editionYear) = self.getSelectedSegment(selected: attributes)
 
-        guard Title || Author || seletecd_edition_year else {
+        guard title || author || editionYear else {
             return self.getBooks()
         }
 
-        return self.getOrdination(selected: [Title, Author, seletecd_edition_year], attributes: attributes, listOfBooks: listOfBooks)
+        return self.getOrdination(selected: [title, author, editionYear],
+                                  attributes: attributes, listOfBooks: listOfBooks)
     }
 
     //# MARK: - GET ORDINATION
 
-    func getOrdination(selected selected: [Bool], attributes: NSDictionary, listOfBooks: [Book]) -> [Book] {
+    func getOrdination(selected status: [Bool],
+                                attributes: NSDictionary,
+                                listOfBooks: [Book]) -> [Book] {
 
         var listContainsNewOrder = [Book]()
 
-        let Title = selected[Segment.Title.rawValue]
-        let Author = selected[Segment.Author.rawValue]
-        let selected_edition_year = selected[Segment.EditionYear.rawValue]
+        let title = status[Segment.Title.rawValue]
+        let author = status[Segment.Author.rawValue]
+        let editionYear = status[Segment.EditionYear.rawValue]
 
         let value_selected = self.getTheOrderSelectedByAscOrDesc(selected: attributes)
 
-        if Title {
-            listContainsNewOrder = self.getTitle(value_selected[Segment.Title.rawValue], list: listOfBooks)
+        if title {
+            listContainsNewOrder = self.getTitle(value_selected[Segment.Title.rawValue],
+                                                 list: listOfBooks)
         }
 
-        if Author && listContainsNewOrder.count > 0 {
+        if author && listContainsNewOrder.count > 0 {
 
-            let newList = self.getAuthor(value_selected[Segment.Author.rawValue], list: listContainsNewOrder)
+            let newList = self.getAuthor(value_selected[Segment.Author.rawValue], list:
+                listContainsNewOrder)
 
             listContainsNewOrder.removeAll()
             listContainsNewOrder = newList
 
-        } else if Author {
-            listContainsNewOrder = self.getAuthor(value_selected[Segment.Author.rawValue], list: listOfBooks)
+        } else if author {
+            listContainsNewOrder = self.getAuthor(value_selected[Segment.Author.rawValue],
+                                                  list: listOfBooks)
         }
 
-        if selected_edition_year && listContainsNewOrder.count > 0 {
+        if editionYear && listContainsNewOrder.count > 0 {
 
-            let newList = self.getEditionYear(value_selected[Segment.EditionYear.rawValue], list: listContainsNewOrder)
+            let newList = self.getEditionYear(value_selected[Segment.EditionYear.rawValue],
+                                              list: listContainsNewOrder)
 
             listContainsNewOrder.removeAll()
             listContainsNewOrder = newList
 
-        } else if selected_edition_year {
-            listContainsNewOrder = self.getEditionYear(value_selected[Segment.EditionYear.rawValue], list: listOfBooks)
+        } else if editionYear {
+            listContainsNewOrder = self.getEditionYear(value_selected[Segment.EditionYear.rawValue],
+                                                       list: listOfBooks)
         }
 
         return listContainsNewOrder
@@ -107,38 +116,40 @@ class BookController {
     //# MARK: - GET SELECTED SEGMENT
 
     func getSelectedSegment(selected selected: NSDictionary) -> (Bool, Bool, Bool) {
-        let title = selected.valueForKey("title") as! Int
-        let author = selected.valueForKey("author") as! Int
-        let editionYear = selected.valueForKey("editionYear") as! Int
+        let segment_title = (selected.valueForKey("title") as? String)!
+        let segment_author = (selected.valueForKey("author") as? String)!
+        let segment_editionYear = (selected.valueForKey("editionYear") as? String)!
 
-        var Title = false
-        var Author = false
-        var selected_edition_year = false
+        var title = false
+        var author = false
+        var editionYear = false
 
-        if title != Segment.Deselected.rawValue {
-            Title = true
+        if Int(segment_title) != Segment.Deselected.rawValue {
+            title = true
         }
 
-        if author != Segment.Deselected.rawValue {
-            Author = true
+        if Int(segment_author) != Segment.Deselected.rawValue {
+            author = true
         }
 
-        if editionYear != Segment.Deselected.rawValue {
-            selected_edition_year = true
+        if Int(segment_editionYear) != Segment.Deselected.rawValue {
+            editionYear = true
         }
 
-        return (Title, Author, selected_edition_year)
+        return (title, author, editionYear)
     }
 
     //# MARK: - GET THE ORDER SELECTED BY ASC OR DESC
 
     func getTheOrderSelectedByAscOrDesc(selected selected: NSDictionary) -> [Int] {
 
-        let value_selected_title = selected.valueForKey("title") as! Int
-        let author_value_selected = selected.valueForKey("author") as! Int
-        let edition_year_value_selected_title = selected.valueForKey("editionYear") as! Int
+        let value_selected_title = (selected.valueForKey("title") as? String)!
+        let author_value_selected = (selected.valueForKey("author") as? String)!
+        let edition_year_value_selected_title = (selected.valueForKey("editionYear") as? String)!
 
-        return [value_selected_title, author_value_selected, edition_year_value_selected_title]
+        return [Int(value_selected_title)!,
+                Int(author_value_selected)!,
+                Int(edition_year_value_selected_title)!]
     }
 
 }

@@ -12,9 +12,9 @@ class BookViewController: UIViewController {
 
     @IBOutlet weak var bookTableView: UITableView!
 
-    @IBOutlet weak var segmentTitle: UISegmentedControl!
-    @IBOutlet weak var segmentAuthor: UISegmentedControl!
-    @IBOutlet weak var segmentEditioYear: UISegmentedControl!
+    @IBOutlet weak var segmentTitle: UISegmentedControl?
+    @IBOutlet weak var segmentAuthor: UISegmentedControl?
+    @IBOutlet weak var segmentEditioYear: UISegmentedControl?
 
     @IBOutlet weak var buttonClearTitle: UIButton!
     @IBOutlet weak var buttonClearAuthor: UIButton!
@@ -32,8 +32,10 @@ class BookViewController: UIViewController {
 
     //# MARK: Table View
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellBooks = tableView.dequeueReusableCellWithIdentifier("CellBooks") as! BookCell
+    func tableView(tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let cellBooks = (tableView.dequeueReusableCellWithIdentifier("CellBooks") as? BookCell)!
 
         let book = BookViewModel(book: self.listOfBooks[indexPath.row])
         cellBooks.configure(bookViewModel: book)
@@ -69,20 +71,29 @@ class BookViewController: UIViewController {
     }
 
     func updateTableView() {
-        let orderedList = getOrdenation(positionTitle: self.segmentTitle.selectedSegmentIndex,
-                                        positionAuthor: self.segmentAuthor.selectedSegmentIndex,
-                                        positionEditionYear: self.segmentEditioYear.selectedSegmentIndex)
+
+        let segmentTitle = self.segmentTitle!.selectedSegmentIndex
+        let segmentAuthor = self.segmentAuthor!.selectedSegmentIndex
+        let segmentEditioYear = self.segmentEditioYear!.selectedSegmentIndex
+
+        let orderedList = getOrdenation(positionTitle: segmentTitle,
+                                        positionAuthor: segmentAuthor,
+                                        positionEditionYear: segmentEditioYear)
         self.listOfBooks = orderedList
 
         self.bookTableView.reloadData()
     }
 
-    func getOrdenation(positionTitle positionTitle: Int, positionAuthor: Int, positionEditionYear: Int) -> [Book] {
+    func getOrdenation(positionTitle positionTitle: Int,
+                                     positionAuthor: Int,
+                                     positionEditionYear: Int) -> [Book] {
+
         let dictionaryWithOptionsSelected = ["title" : positionTitle,
                                              "author" : positionAuthor,
                                              "editionYear" : positionEditionYear]
 
-        let newList = bookController.validate(selected: dictionaryWithOptionsSelected, listOfBooks: self.listOfBooks)
+        let newList = bookController.validate(selected: dictionaryWithOptionsSelected,
+                                              listOfBooks: self.listOfBooks)
         self.clearList()
         return newList
     }
@@ -96,9 +107,9 @@ class BookViewController: UIViewController {
     //# MARK: Validate Segments
 
     func validateSegments() {
-        if self.segmentTitle.selectedSegmentIndex == Segment.Deselected.rawValue &&
-            self.segmentAuthor.selectedSegmentIndex == Segment.Deselected.rawValue &&
-            self.segmentEditioYear.selectedSegmentIndex == Segment.Deselected.rawValue {
+        if self.segmentTitle!.selectedSegmentIndex == Segment.Deselected.rawValue &&
+            self.segmentAuthor!.selectedSegmentIndex == Segment.Deselected.rawValue &&
+            self.segmentEditioYear!.selectedSegmentIndex == Segment.Deselected.rawValue {
             self.setDefaultList()
         }
     }
@@ -128,15 +139,15 @@ class BookViewController: UIViewController {
     func resetSegment(selectedSegment selectedSegment: Int) {
         switch selectedSegment {
         case 0:
-            self.segmentTitle.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentTitle!.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         case 1:
-            self.segmentAuthor.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentAuthor!.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         case 2:
-            self.segmentEditioYear.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentEditioYear!.selectedSegmentIndex = Segment.Deselected.rawValue
             break
 
         default: break

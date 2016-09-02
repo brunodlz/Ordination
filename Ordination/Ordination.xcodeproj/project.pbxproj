@@ -11,7 +11,6 @@
 		151000AE1D7403E300E9C09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151000AC1D7403E300E9C09E /* Main.storyboard */; };
 		151000B01D7403E300E9C09E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151000AF1D7403E300E9C09E /* Assets.xcassets */; };
 		151000B31D7403E300E9C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151000B11D7403E300E9C09E /* LaunchScreen.storyboard */; };
-		151000BE1D7403E300E9C09E /* OrdinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000BD1D7403E300E9C09E /* OrdinationTests.swift */; };
 		151000C91D7403E300E9C09E /* OrdinationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000C81D7403E300E9C09E /* OrdinationUITests.swift */; };
 		151000E61D74088300E9C09E /* SortingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000E51D74088300E9C09E /* SortingTests.swift */; };
 		151000E81D7408B800E9C09E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151000E71D7408B800E9C09E /* Book.swift */; };
@@ -49,7 +48,6 @@
 		151000B21D7403E300E9C09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151000B41D7403E300E9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		151000B91D7403E300E9C09E /* OrdinationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrdinationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		151000BD1D7403E300E9C09E /* OrdinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinationTests.swift; sourceTree = "<group>"; };
 		151000BF1D7403E300E9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		151000C41D7403E300E9C09E /* OrdinationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrdinationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		151000C81D7403E300E9C09E /* OrdinationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinationUITests.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		151000BC1D7403E300E9C09E /* OrdinationTests */ = {
 			isa = PBXGroup;
 			children = (
-				151000BD1D7403E300E9C09E /* OrdinationTests.swift */,
 				151000E51D74088300E9C09E /* SortingTests.swift */,
 				151000EB1D7409B200E9C09E /* ModelTests.swift */,
 				151000BF1D7403E300E9C09E /* Info.plist */,
@@ -369,7 +366,6 @@
 			files = (
 				151000EC1D7409B300E9C09E /* ModelTests.swift in Sources */,
 				151000E61D74088300E9C09E /* SortingTests.swift in Sources */,
-				151000BE1D7403E300E9C09E /* OrdinationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
