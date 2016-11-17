@@ -108,24 +108,27 @@ class BookController {
     //# MARK: - GET SELECTED SEGMENT
 
     func getSelectedSegment(selected: NSDictionary) -> (Bool, Bool, Bool) {
-        let segment_title = (selected.value(forKey: "title") as? String)!
-        let segment_author = (selected.value(forKey: "author") as? String)!
-        let segment_editionYear = (selected.value(forKey: "editionYear") as? String)!
-
+        
         var title = false
         var author = false
         var editionYear = false
-
-        if Int(segment_title) != Segment.deselected.rawValue {
-            title = true
+        
+        if let segment_title = (selected.value(forKey: "title") as? String) {
+            if Int(segment_title) != Segment.deselected.rawValue {
+                title = true
+            }
         }
-
-        if Int(segment_author) != Segment.deselected.rawValue {
-            author = true
+        
+        if let segment_author = (selected.value(forKey: "author") as? String) {
+            if Int(segment_author) != Segment.deselected.rawValue {
+                author = true
+            }
         }
-
-        if Int(segment_editionYear) != Segment.deselected.rawValue {
-            editionYear = true
+        
+        if let segment_editionYear = (selected.value(forKey: "editionYear") as? String) {
+            if Int(segment_editionYear) != Segment.deselected.rawValue {
+                editionYear = true
+            }
         }
 
         return (title, author, editionYear)
