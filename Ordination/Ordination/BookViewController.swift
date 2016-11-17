@@ -19,15 +19,18 @@ class BookViewController: UIViewController {
         super.viewDidLoad()
 
         self.listOfBooks = bookController.getBooks()
-        self.setDefaultList()
     }
 
+    override func viewDidAppear() {
+        self.setDefaultList()
+    }
+    
     //# MARK: Table View
 
-    func tableView(tableView: UITableView,
-                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
 
-        let cellBooks = (tableView.dequeueReusableCellWithIdentifier("CellBooks") as? BookCell)!
+        let cellBooks = (tableView.dequeueReusableCell(withIdentifier: "CellBooks") as? BookCell)!
 
         let book = BookViewModel(book: self.listOfBooks[indexPath.row])
         cellBooks.configure(bookViewModel: book)
@@ -35,27 +38,27 @@ class BookViewController: UIViewController {
         return cellBooks
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listOfBooks.count
     }
 
     //# MARK: Set Default List
 
     func setDefaultList() {
-        let defaultList = getOrdenation(positionTitle: OrderBy.ASC.rawValue,
-                                        positionAuthor: OrderBy.ASC.rawValue,
-                                        positionEditionYear: Segment.Deselected.rawValue)
+        let defaultList = getOrdenation(positionTitle: OrderBy.asc.rawValue,
+                                        positionAuthor: OrderBy.asc.rawValue,
+                                        positionEditionYear: Segment.deselected.rawValue)
         self.listOfBooks = defaultList
     }
 
     //# MARK: Actions
 
-    @IBAction func actionOrder(sender: AnyObject) {
+    @IBAction func actionOrder(_ sender: AnyObject) {
         self.hiddenButton(hidden: false, selectedSegment: sender.tag)
         self.updateTableView()
     }
 
-    @IBAction func actionCleanOption(sender: AnyObject) {
+    @IBAction func actionCleanOption(_ sender: AnyObject) {
         self.hiddenButton(hidden: true, selectedSegment: sender.tag)
         self.resetSegment(selectedSegment: sender.tag)
         self.validateSegments()
@@ -76,7 +79,7 @@ class BookViewController: UIViewController {
         self.bookTableView.reloadData()
     }
 
-    func getOrdenation(positionTitle positionTitle: Int,
+    func getOrdenation(positionTitle: Int,
                                      positionAuthor: Int,
                                      positionEditionYear: Int) -> [Book] {
 
@@ -84,7 +87,7 @@ class BookViewController: UIViewController {
                                              "author" : positionAuthor,
                                              "editionYear" : positionEditionYear]
 
-        let newList = bookController.validate(selected: dictionaryWithOptionsSelected,
+        let newList = bookController.validate(selected: dictionaryWithOptionsSelected as NSDictionary,
                                               listOfBooks: self.listOfBooks)
         self.clearList()
         return newList
@@ -99,27 +102,27 @@ class BookViewController: UIViewController {
     //# MARK: Validate Segments
 
     func validateSegments() {
-        if self.segmentTitle!.selectedSegmentIndex == Segment.Deselected.rawValue &&
-            self.segmentAuthor!.selectedSegmentIndex == Segment.Deselected.rawValue &&
-            self.segmentEditioYear!.selectedSegmentIndex == Segment.Deselected.rawValue {
+        if self.segmentTitle!.selectedSegmentIndex == Segment.deselected.rawValue &&
+            self.segmentAuthor!.selectedSegmentIndex == Segment.deselected.rawValue &&
+            self.segmentEditioYear!.selectedSegmentIndex == Segment.deselected.rawValue {
             self.setDefaultList()
         }
     }
 
     //# MARK: Hidden Button
 
-    func hiddenButton(hidden hidden: Bool, selectedSegment: Int) {
+    func hiddenButton(hidden: Bool, selectedSegment: Int) {
         switch selectedSegment {
         case 0:
-            self.buttonClearTitle.hidden = hidden
+            self.buttonClearTitle.isHidden = hidden
             break
 
         case 1:
-            self.buttonClearAuthor.hidden = hidden
+            self.buttonClearAuthor.isHidden = hidden
             break
 
         case 2:
-            self.buttonClearEditionYear.hidden = hidden
+            self.buttonClearEditionYear.isHidden = hidden
             break
 
         default: break
@@ -128,18 +131,18 @@ class BookViewController: UIViewController {
 
     //# MARK: Table View
 
-    func resetSegment(selectedSegment selectedSegment: Int) {
+    func resetSegment(selectedSegment: Int) {
         switch selectedSegment {
         case 0:
-            self.segmentTitle!.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentTitle!.selectedSegmentIndex = Segment.deselected.rawValue
             break
 
         case 1:
-            self.segmentAuthor!.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentAuthor!.selectedSegmentIndex = Segment.deselected.rawValue
             break
 
         case 2:
-            self.segmentEditioYear!.selectedSegmentIndex = Segment.Deselected.rawValue
+            self.segmentEditioYear!.selectedSegmentIndex = Segment.deselected.rawValue
             break
 
         default: break

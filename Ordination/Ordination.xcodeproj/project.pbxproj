@@ -286,13 +286,16 @@
 				TargetAttributes = {
 					151000A41D7403E300E9C09E = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					151000B81D7403E300E9C09E = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 151000A41D7403E300E9C09E;
 					};
 					151000C31D7403E300E9C09E = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 151000A41D7403E300E9C09E;
 					};
 				};
@@ -505,6 +508,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.Ordination;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -516,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.Ordination;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -527,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.OrdinationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ordination.app/Ordination";
 			};
 			name = Debug;
@@ -539,6 +545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.OrdinationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ordination.app/Ordination";
 			};
 			name = Release;
@@ -550,6 +557,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.OrdinationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Ordination;
 			};
 			name = Debug;
@@ -561,6 +569,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.code.OrdinationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Ordination;
 			};
 			name = Release;

@@ -1,9 +1,13 @@
 import Foundation
 
 enum Segment: Int {
-    case Deselected = -1, Title = 0, Author = 1, EditionYear = 2
+    case deselected  = -1
+    case title       = 0
+    case author      = 1
+    case editionYear = 2
 }
 
 enum OrderBy: Int {
-    case ASC = 0, DESC = 1
+    case asc  = 0
+    case desc = 1
 }

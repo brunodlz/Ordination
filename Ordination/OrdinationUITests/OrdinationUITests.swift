@@ -19,17 +19,17 @@ class OrdinationUITests: XCTestCase {
 
         let element = XCUIApplication()
             .otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other).elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other).element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(0)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 0)
             .buttons["Asc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(0)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 0)
             .tap()
 
     }
@@ -37,90 +37,90 @@ class OrdinationUITests: XCTestCase {
     func test_select_by_title_DESC_and_deselected() {
 
         let element = XCUIApplication().otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other)
-            .elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other)
+            .element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(0)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 0)
             .buttons["Desc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(0)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 0)
             .tap()
     }
 
     func test_select_by_author_ASC_and_deselected() {
 
         let element = XCUIApplication().otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other)
-            .elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other)
+            .element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(1)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 1)
             .buttons["Asc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(1)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 1)
             .tap()
     }
 
     func test_select_by_author_DESC_and_deselected() {
 
         let element = XCUIApplication().otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other)
-            .elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other)
+            .element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(1)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 1)
             .buttons["Desc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(1)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 1)
             .tap()
     }
 
     func test_select_by_edition_year_ASC_and_deselected() {
 
         let element = XCUIApplication().otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other)
-            .elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other)
+            .element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(2)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 2)
             .buttons["Asc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(2)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 2)
             .tap()
     }
 
     func test_select_by_edition_year_DESC_and_deselected() {
 
         let element = XCUIApplication().otherElements
-            .containingType(.NavigationBar, identifier:"Books")
-            .childrenMatchingType(.Other)
-            .elementBoundByIndex(1)
+            .containing(.navigationBar, identifier:"Books")
+            .children(matching: .other)
+            .element(boundBy: 1)
 
-        element.childrenMatchingType(.SegmentedControl)
-            .elementBoundByIndex(2)
+        element.children(matching: .segmentedControl)
+            .element(boundBy: 2)
             .buttons["Desc"]
             .tap()
 
-        element.childrenMatchingType(.Button)
-            .matchingIdentifier("erase")
-            .elementBoundByIndex(2)
+        element.children(matching: .button)
+            .matching(identifier: "erase")
+            .element(boundBy: 2)
             .tap()
     }
 
