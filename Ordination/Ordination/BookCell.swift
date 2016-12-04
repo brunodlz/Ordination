@@ -4,7 +4,6 @@ class BookCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var editionYearLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,8 +16,7 @@ class BookCell: UITableViewCell {
 
     func configure(bookViewModel book: BookViewModel) {
         self.titleLabel.text = book.title
-        self.authorLabel.text = book.author
-        self.editionYearLabel.text = "\(book.editionYear)"
+        self.authorLabel.text = "\(book.editionYear) \(book.author)"
     }
 
 }
