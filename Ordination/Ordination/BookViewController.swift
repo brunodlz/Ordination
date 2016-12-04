@@ -17,7 +17,10 @@ class BookViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        bookTableView.estimatedRowHeight = 68.0
+        bookTableView.rowHeight = UITableViewAutomaticDimension
+        
         self.listOfBooks = bookController.getBooks()
     }
 
@@ -129,6 +132,15 @@ class BookViewController: UIViewController {
         default: break
         }
     }
+    
+    //# MARK: Set Default List
+    
+    func setDefaultList() {
+        let defaultList = getOrdenation(positionTitle: OrderBy.asc.rawValue,
+                                        positionAuthor: OrderBy.asc.rawValue,
+                                        positionEditionYear: Segment.deselected.rawValue)
+        self.listOfBooks = defaultList
+    }
 }
 
 extension BookViewController : UITableViewDataSource {
@@ -149,14 +161,5 @@ extension BookViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listOfBooks.count
     }
-    
-    //# MARK: Set Default List
-    
-    func setDefaultList() {
-        let defaultList = getOrdenation(positionTitle: OrderBy.asc.rawValue,
-                                        positionAuthor: OrderBy.asc.rawValue,
-                                        positionEditionYear: Segment.deselected.rawValue)
-        self.listOfBooks = defaultList
-    }
-    
 }
+
