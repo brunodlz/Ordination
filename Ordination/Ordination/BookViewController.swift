@@ -21,36 +21,10 @@ class BookViewController: UIViewController {
         self.listOfBooks = bookController.getBooks()
     }
 
-    override func viewDidAppear() {
+    func viewDidAppear() {
         self.setDefaultList()
     }
     
-    //# MARK: Table View
-
-    func tableView(_ tableView: UITableView,
-                   cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-
-        let cellBooks = (tableView.dequeueReusableCell(withIdentifier: "CellBooks") as? BookCell)!
-
-        let book = BookViewModel(book: self.listOfBooks[indexPath.row])
-        cellBooks.configure(bookViewModel: book)
-
-        return cellBooks
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listOfBooks.count
-    }
-
-    //# MARK: Set Default List
-
-    func setDefaultList() {
-        let defaultList = getOrdenation(positionTitle: OrderBy.asc.rawValue,
-                                        positionAuthor: OrderBy.asc.rawValue,
-                                        positionEditionYear: Segment.deselected.rawValue)
-        self.listOfBooks = defaultList
-    }
-
     //# MARK: Actions
 
     @IBAction func actionOrder(_ sender: AnyObject) {
@@ -66,7 +40,6 @@ class BookViewController: UIViewController {
     }
 
     func updateTableView() {
-
         let segmentTitle = self.segmentTitle!.selectedSegmentIndex
         let segmentAuthor = self.segmentAuthor!.selectedSegmentIndex
         let segmentEditioYear = self.segmentEditioYear!.selectedSegmentIndex
@@ -102,11 +75,19 @@ class BookViewController: UIViewController {
     //# MARK: Validate Segments
 
     func validateSegments() {
-        if self.segmentTitle!.selectedSegmentIndex == Segment.deselected.rawValue &&
-            self.segmentAuthor!.selectedSegmentIndex == Segment.deselected.rawValue &&
-            self.segmentEditioYear!.selectedSegmentIndex == Segment.deselected.rawValue {
-            self.setDefaultList()
+        guard self.segmentTitle!.selectedSegmentIndex == Segment.deselected.rawValue else {
+            return
         }
+        
+        guard self.segmentAuthor!.selectedSegmentIndex == Segment.deselected.rawValue else {
+            return
+        }
+        
+        guard self.segmentEditioYear!.selectedSegmentIndex == Segment.deselected.rawValue else {
+            return
+        }
+        
+        self.setDefaultList()
     }
 
     //# MARK: Hidden Button
@@ -148,4 +129,34 @@ class BookViewController: UIViewController {
         default: break
         }
     }
+}
+
+extension BookViewController : UITableViewDataSource {
+    
+    //# MARK: Table View
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellBooks = (tableView.dequeueReusableCell(withIdentifier: "CellBooks") as? BookCell)!
+        
+        let book = BookViewModel(book: self.listOfBooks[indexPath.row])
+        cellBooks.configure(bookViewModel: book)
+        
+        return cellBooks
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listOfBooks.count
+    }
+    
+    //# MARK: Set Default List
+    
+    func setDefaultList() {
+        let defaultList = getOrdenation(positionTitle: OrderBy.asc.rawValue,
+                                        positionAuthor: OrderBy.asc.rawValue,
+                                        positionEditionYear: Segment.deselected.rawValue)
+        self.listOfBooks = defaultList
+    }
+    
 }
