@@ -113,20 +113,20 @@ class BookController {
         var author = false
         var editionYear = false
         
-        if let segment_title = (selected.value(forKey: "title") as? String) {
-            if Int(segment_title) != Segment.deselected.rawValue {
+        if let segment_title = (selected.value(forKey: "title") as? Int) {
+            if segment_title != Segment.deselected.rawValue {
                 title = true
             }
         }
         
-        if let segment_author = (selected.value(forKey: "author") as? String) {
-            if Int(segment_author) != Segment.deselected.rawValue {
+        if let segment_author = (selected.value(forKey: "author") as? Int) {
+            if segment_author != Segment.deselected.rawValue {
                 author = true
             }
         }
         
-        if let segment_editionYear = (selected.value(forKey: "editionYear") as? String) {
-            if Int(segment_editionYear) != Segment.deselected.rawValue {
+        if let segment_editionYear = (selected.value(forKey: "editionYear") as? Int) {
+            if segment_editionYear != Segment.deselected.rawValue {
                 editionYear = true
             }
         }
@@ -138,13 +138,13 @@ class BookController {
 
     func getTheOrderSelectedByAscOrDesc(selected: NSDictionary) -> [Int] {
 
-        let value_selected_title = (selected.value(forKey: "title") as? String)!
-        let author_value_selected = (selected.value(forKey: "author") as? String)!
-        let edition_year_value_selected_title = (selected.value(forKey: "editionYear") as? String)!
+        let value_selected_title = (selected.value(forKey: "title") as? Int)!
+        let author_value_selected = (selected.value(forKey: "author") as? Int)!
+        let edition_year_value_selected_title = (selected.value(forKey: "editionYear") as? Int)!
 
-        return [Int(value_selected_title)!,
-                Int(author_value_selected)!,
-                Int(edition_year_value_selected_title)!]
+        return [value_selected_title,
+                author_value_selected,
+                edition_year_value_selected_title]
     }
 
 }
