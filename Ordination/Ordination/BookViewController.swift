@@ -56,8 +56,8 @@ class BookViewController: UIViewController {
     }
 
     func getOrdenation(positionTitle: Int,
-                                     positionAuthor: Int,
-                                     positionEditionYear: Int) -> [Book] {
+                       positionAuthor: Int,
+                       positionEditionYear: Int) -> [Book] {
 
         let dictionaryWithOptionsSelected = ["title" : positionTitle,
                                              "author" : positionAuthor,
