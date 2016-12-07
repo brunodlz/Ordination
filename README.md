@@ -1,6 +1,7 @@
 # Ordination
 
 [![Build Status](https://travis-ci.org/brunodlz/Ordination.svg?branch=master)](https://travis-ci.org/brunodlz/Ordination)
+[![Twitter](https://img.shields.io/badge/twitter-@brunodlz-red.svg?style=flat)](https://twitter.com/brunodlz)
 
 This is a project for sorting books.
 
