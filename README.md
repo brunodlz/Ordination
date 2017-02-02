@@ -6,7 +6,7 @@
 This is a project for sorting books.
 
 For this project: 
-* Swift (2.2) programming language.
+* Swift 3.
 * MVVM architecture.
 * Tests with code coverage: 99%.
 * Swiftlint - A tool to enforce Swift style and conventions
