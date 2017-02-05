@@ -13,14 +13,14 @@ For this project:
 
 ## Installation
 
-I - Open terminal
+- Open terminal
 
-II - Git Clone
+- Git Clone
 ```
 git clone https://github.com/brunodlz/Ordination.git
 ```
 
-III - cd Ordination/
+- cd Ordination/
 ```
    Outputs:
     .
@@ -29,7 +29,7 @@ III - cd Ordination/
     └── Ordination
 ```
 
-IV - cd Ordination/
+- cd Ordination/
 ```
    Outputs:
     .
@@ -39,8 +39,6 @@ IV - cd Ordination/
         └── OrdinationTests
         └── OrdinationUITests
 ```
-V   - open Ordination.xcodeproj/
-
-VI  - Choice a simulator
-
-VII - Run
+- open Ordination.xcodeproj/
+  * Choice a simulator
+  * Run
